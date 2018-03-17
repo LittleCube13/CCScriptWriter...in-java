@@ -424,7 +424,7 @@ public class CCScriptWriter {
 			stupid2[0] = ROM[i];
 			int value = Integer.parseInt(DatatypeConverter.printHexBinary(stupid), 16);
 			String value2 = DatatypeConverter.printHexBinary(stupid2);
-			ret[0] += "\" if isset("+ value + ") goto(0x" + value2 + ") \"";
+			ret[0] += "\" if flag " + value + " { goto(0x" + value2 + ") } \"";
 			ret[1] = Integer.toString(i);
 			return ret;
 		}
