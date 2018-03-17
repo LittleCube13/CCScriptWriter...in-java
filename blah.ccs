@@ -1,6 +1,0 @@
-// Outputted by CCScriptWriter.
-
-command e(label) { "{long label}" }
-
-l_0x00C74C07:
-	"" if isset(40) goto(0x00C7C588) "" if isset(64) goto(0x00C74C85) "[17]I[17][32]![10][14][17][CF]o[15][22][17][F6]na[15][BD][15]la [16]z?{linebreak}[19]" eob

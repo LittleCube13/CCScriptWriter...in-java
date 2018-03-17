@@ -1,5 +1,6 @@
 all:
-	javac *.java
+	javac CCScriptWriter.java
+	cd JOING && make dev
 
 clean:
 	rm *.class
