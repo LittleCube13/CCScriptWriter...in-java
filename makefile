@@ -1,6 +1,7 @@
 all:
 	javac CCScriptWriter.java
-	cd JOING && make dev
+	cd JOING && make nojar
 
 clean:
-	rm *.class
+	rm *.class || continue
+	rm ./JOING/*.class || continue
