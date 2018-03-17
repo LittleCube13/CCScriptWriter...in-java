@@ -2,8 +2,12 @@ import java.io.*;
 import java.util.*;
 import javax.xml.bind.*;
 
+import JOING.*;
+
 public class CCScriptWriter {
 
+	public static JOING japp = new JOING();
+	
 	public static void main(String args[]) {
 		try {
 			if (args.length < 3) {
@@ -24,6 +28,7 @@ public class CCScriptWriter {
 				}
 				System.out.println(String.format("0x%08X", pointer - 0xBFFE00));
 				String ccsfile = readROM(f, pointer);
+				japp.decompress(ccsfile);
 				FileWriter fw = new FileWriter(args[2]);
 				fw.write(ccsfile);
 				fw.close();
@@ -339,7 +344,13 @@ public class CCScriptWriter {
 						ccsfile += ret[0];
 						i = Integer.parseInt(ret[1]);
 					} else {
-						ccsfile += "[" + DatatypeConverter.printHexBinary(stupid) + "]";
+						if (ROM[i] == 0x15 || ROM[i] == 0x16 || ROM[i] == 0x17) {
+							byte[] stupid2 = Arrays.copyOfRange(ROM, i + 1, i + 2);
+							ccsfile += "[" + DatatypeConverter.printHexBinary(stupid) + " " + DatatypeConverter.printHexBinary(stupid2) + "]";
+							i += 1;
+						} else {
+							ccsfile += "[" + DatatypeConverter.printHexBinary(stupid) + "]";
+						}
 					}
 					if (ret[2] == "true") {
 						break;
