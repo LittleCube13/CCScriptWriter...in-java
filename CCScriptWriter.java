@@ -28,7 +28,6 @@ public class CCScriptWriter {
 				}
 				System.out.println(String.format("0x%08X", pointer - 0xBFFE00));
 				String ccsfile = readROM(f, pointer);
-				japp.decompress(ccsfile);
 				FileWriter fw = new FileWriter(args[2]);
 				fw.write(ccsfile);
 				fw.close();
@@ -357,6 +356,7 @@ public class CCScriptWriter {
 					}
 				}
 			}
+			ccsfile = japp.decompress(ccsfile);
 			return ccsfile;
 		} catch (Exception e) { System.err.println("~~~~ Whoops! Error in function readROM: " + e.toString()); System.exit(1); }
 		return null;
