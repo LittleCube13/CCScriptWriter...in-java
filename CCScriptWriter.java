@@ -7,7 +7,7 @@ public class CCScriptWriter {
 	public static void main(String args[]) {
 		try {
 			if (args.length < 3) {
-				System.err.println("~~~~ Error! Not enough argments specified!");
+				System.err.println("~~~~ Error! Not enough arguments specified!");
 				System.err.println("~~~~ usage: java CCScriptWriter [rom file] [int pointer] [output file]");
 				System.exit(1);
 			}

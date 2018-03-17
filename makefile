@@ -1,8 +1,5 @@
 all:
 	javac *.java
-	jar cvfe CCScriptWriter.jar CCScriptWriter *
+
+clean:
 	rm *.class
-	
-dev:
-	javac *.java
-	jar cvfe CCScriptWriter.jar CCScriptWriter *
